@@ -81,8 +81,6 @@ int main ()
 
     int resultado_mdc = mdc(a, m); // memoria para a função mdc
 
-    printf("O MDC(a,m) = %d\n", resultado_mdc);
-
     // Ver se a congruencia tem solucao
     if (b % resultado_mdc == 0) // Se o MDC(a,m) | b, tem solução
     {
@@ -100,35 +98,28 @@ int main ()
         int novo_b = b / resultado_mdc;
         int novo_m = m / resultado_mdc;
 
-        printf("A nova congruência, divida pelo MDC(a,m) é %dx ≡ %d mod %d\n", novo_a, novo_b, novo_m);
-
         int euclides = mdc_estendido(novo_a, novo_m, &s, &t); // Chamando a função para saber o 's'
-        printf("%d = %d * %d + %d * %d\n", euclides, s, novo_a, t, novo_m);
 
         if (s < 0) // Se o 's', que é o inverso, for negativo, eu tenho que somar ele com o 'm'
         {
             s = s + novo_m;
-            printf("Como o s é negativo, somando com m, o novo s fica %d\n", s);
         }
         
         int x = (s * novo_b) % novo_m; // Calculando o 'X'
-        printf("O 'x' é %d\n", x);
 
         encontrando_k (x, novo_m, 0, resultado_mdc, 1); // Chamando a função para encontrar todas as soluções
     }
     else // se o mdc for 1, faz direto
     {
         int euclides = mdc_estendido(a, m, &s, &t);
-        printf("%d = %d * %d + %d * %d\n", euclides, s, a, t, m);
         
         if (s < 0) // o 's', que é o inverso, não pode ser negativo
         {
             s = s + m;
-            printf("Como o s é negativo, somando com m, o novo s fica %d\n", s); 
         }
         
         int x = (s * b) % m;
-        printf("O 'x' é %d\n", x);
+
         encontrando_k (x, m, 0, resultado_mdc, 1);
     }
     

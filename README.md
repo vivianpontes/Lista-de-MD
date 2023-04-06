@@ -5,6 +5,6 @@ Respostas da lista
 Discentes:
 - Antonio Guilherme Da Silva
 - Eduardo Felipe Lourenço Borges
-- Pablo Munih
+- Pablo Munih Silva de Carvalho
 - Vívian Costa Pontes
 
